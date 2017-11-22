@@ -18,9 +18,6 @@ object FirstApp extends App with Runner[Done] {
       */
     val source: Source[Int, NotUsed] = Source(1 to 100)
 
-    /**
-      * Run the stream
-      */
     val done: Future[Done] = source.runForeach(i => println(i))(m)
 
     done
