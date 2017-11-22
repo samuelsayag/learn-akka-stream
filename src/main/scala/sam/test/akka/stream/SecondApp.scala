@@ -32,5 +32,5 @@ object SecondApp extends App with Runner[IOResult] {
     result
   }
 
-  exec(toExec, None)
+  justExec
 }

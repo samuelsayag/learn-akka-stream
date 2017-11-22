@@ -11,7 +11,7 @@ trait Runner[T] {
   def toExec(m: Materializer): Future[T]
 
   def exec[O](f: (Materializer) => Future[T],
-                 toDo: Option[(T) => O]): Unit = {
+              toDo: Option[(T) => O]): Unit = {
 
     implicit val system = ActorSystem("QuickStart")
     val mat: Materializer = ActorMaterializer()
@@ -23,5 +23,5 @@ trait Runner[T] {
     })(ec)
   }
 
-
+  def justExec = exec(toExec, None)
 }

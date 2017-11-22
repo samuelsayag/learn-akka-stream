@@ -50,5 +50,5 @@ object ThirdApp extends App with Runner[Done] {
     result
   }
 
-  exec(toExec, None)
+  justExec
 }

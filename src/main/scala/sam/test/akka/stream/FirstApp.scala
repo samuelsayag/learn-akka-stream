@@ -23,6 +23,6 @@ object FirstApp extends App with Runner[Done] {
     done
   }
 
-  exec(toExec,None)
+  justExec
 
 }

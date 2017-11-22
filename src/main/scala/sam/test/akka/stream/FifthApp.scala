@@ -32,5 +32,5 @@ object FifthApp extends App with Runner[Done] {
     result
   }
 
-  exec(toExec, None)
+  justExec
 }

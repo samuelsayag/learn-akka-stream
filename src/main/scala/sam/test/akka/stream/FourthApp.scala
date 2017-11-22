@@ -35,6 +35,5 @@ object FourthApp extends App with Runner[IOResult] {
       .map(s ⇒ ByteString(s + "\n"))
       .toMat(FileIO.toPath(Paths.get(filename)))(Keep.right)
 
-  exec(toExec, None)
-
+  justExec
 }
