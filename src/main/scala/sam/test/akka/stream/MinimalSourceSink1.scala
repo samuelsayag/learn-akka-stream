@@ -15,9 +15,12 @@ object MinimalSourceSink1 extends App with Runner[Int] {
 
     // connect the Source to the Sink, obtaining a RunnableGraph
     val runnable: RunnableGraph[Future[Int]] = source.toMat(sink)(Keep.right)
-
     // materialize the flow and get the value of the FoldSink
     val sum: Future[Int] = runnable.run()(m)
+
+    //    // more simply the graph may be directly materialize with the sink
+    //    // Note: in this case, the last materialized value is always kept.
+    //    val sum: Future[Int] = source.runWith(sink)(m)
 
     sum
   }

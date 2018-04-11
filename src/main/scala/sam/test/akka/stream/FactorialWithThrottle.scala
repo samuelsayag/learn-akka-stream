@@ -8,7 +8,7 @@ import sam.test.akka.stream.helper.Runner
 
 import scala.concurrent.Future
 
-object FifthApp extends App with Runner[Done] {
+object FactorialWithThrottle extends App with Runner[Done] {
 
   def toExec(m: Materializer): Future[Done] = {
 
@@ -22,7 +22,7 @@ object FifthApp extends App with Runner[Done] {
     val factorials = source.scan(BigInt(1))((acc, next) => acc * next)
 
     import scala.concurrent.duration._
-
+//
     val result: Future[Done] =
       factorials
         .zipWith(Source(0 to 100))((num, idx) ⇒ s"$idx! = $num")

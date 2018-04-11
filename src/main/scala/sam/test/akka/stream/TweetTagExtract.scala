@@ -7,7 +7,7 @@ import sam.test.akka.stream.helper.Runner
 
 import scala.concurrent.Future
 
-object ThirdApp extends App with Runner[Done] {
+object TweetTagExtract extends App with Runner[Done] {
 
   def toExec(m: Materializer): Future[Done] = {
     final case class Author(handle: String)

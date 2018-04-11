@@ -14,3 +14,4 @@ bin
 logs
 *.log
 *.sc
+*.txt
