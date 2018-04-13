@@ -1,4 +1,4 @@
-package sam.test.akka.stream.helper
+package learn.akka.stream.helper
 
 import akka.actor.ActorSystem
 import akka.stream.{ActorMaterializer, Materializer}

@@ -1,9 +1,9 @@
-package sam.test.akka.stream
+package learn.akka.stream
 
 import akka.stream._
 import akka.stream.scaladsl._
 import akka.{Done, NotUsed}
-import sam.test.akka.stream.helper.Runner
+import learn.akka.stream.helper.Runner
 
 import scala.concurrent._
 

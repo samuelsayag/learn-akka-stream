@@ -1,8 +1,8 @@
-package sam.test.akka.stream
+package learn.akka.stream
 
 import akka.stream.Materializer
 import akka.stream.scaladsl.{Keep, RunnableGraph, Sink, Source}
-import sam.test.akka.stream.helper.Runner
+import learn.akka.stream.helper.Runner
 
 import scala.concurrent.Future
 

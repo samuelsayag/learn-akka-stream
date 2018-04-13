@@ -1,10 +1,9 @@
-package sam.test.akka.stream
+package learn.akka.stream
 
-import akka.{Done, NotUsed}
-import akka.actor.ActorSystem
 import akka.stream.scaladsl.Source
-import akka.stream.{ActorMaterializer, IOResult, Materializer, ThrottleMode}
-import sam.test.akka.stream.helper.Runner
+import akka.stream.{Materializer, ThrottleMode}
+import akka.{Done, NotUsed}
+import learn.akka.stream.helper.Runner
 
 import scala.concurrent.Future
 

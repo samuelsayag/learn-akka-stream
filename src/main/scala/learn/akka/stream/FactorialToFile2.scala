@@ -1,20 +1,18 @@
-package sam.test.akka.stream
+package learn.akka.stream
 
 import java.nio.file.Paths
 
-import akka.{Done, NotUsed}
-import akka.actor.ActorSystem
+import akka.NotUsed
 import akka.stream._
 import akka.stream.scaladsl._
 import akka.util.ByteString
-import sam.test.akka.stream.helper.Runner
+import learn.akka.stream.helper.Runner
 
-import scala.concurrent._
+import scala.concurrent.Future
 
-object FactorialToFile extends App with Runner[IOResult] {
+object FactorialToFile2 extends App with Runner[IOResult] {
 
   def toExec(m: Materializer): Future[IOResult] = {
-
     /**
       * Create the source: The first parameter (Int) is the data provided by the stream
       * Second parameter is the materializer
@@ -25,12 +23,16 @@ object FactorialToFile extends App with Runner[IOResult] {
     val factorials = source.scan(BigInt(1))((acc, next) => acc * next)
 
     val result: Future[IOResult] =
-      factorials
-        .map(num => ByteString(s"$num\n"))
-        .runWith(FileIO.toPath(Paths.get("factorials.txt")))(m)
-
+      factorials.
+        map(_.toString).
+        runWith(lineSink("factorial2.txt"))(m)
     result
   }
+
+  def lineSink(filename: String): Sink[String, Future[IOResult]] =
+    Flow[String]
+      .map(s ⇒ ByteString(s + "\n"))
+      .toMat(FileIO.toPath(Paths.get(filename)))(Keep.right)
 
   justExec
 }
